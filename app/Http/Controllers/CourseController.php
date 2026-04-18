@@ -28,7 +28,7 @@ class CourseController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            // 'short_name' => 'required|string|max:50',
+            'short_name' => 'required|string|max:50',
             'type' => 'required|string|max:100',
             'fee' => 'required|integer|min:0',
         ]);
@@ -42,12 +42,14 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
-        // return Inertia::render('Courses/Edit');
+        return Inertia::render('Courses/Edit');
     }
 
     public function edit(Course $course)
     {
-        return Inertia::render('Courses/Edit');
+        return Inertia::render('Courses/Edit', [
+            'post' => $course,
+        ]);
 
     }
 

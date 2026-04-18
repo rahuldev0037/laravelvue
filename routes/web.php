@@ -12,10 +12,8 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::resource('courses', CourseController::class);
 Route::resource('courses', CourseController::class);
 
-Route::get('courses/index', [CourseController::class, 'index'])->name('courses.index');
 
 
 require __DIR__ . '/settings.php';

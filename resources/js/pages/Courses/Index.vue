@@ -41,6 +41,7 @@ function destroy(id: number) {
                     <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
                         <tr>
                             <th scope="col" class="px-6 py-3 font-medium">Name</th>
+                            <th scope="col" class="px-6 py-3 font-medium">Short Name</th>
                             <th scope="col" class="px-6 py-3 font-medium">Type</th>
                             <th scope="col" class="px-6 py-3 font-medium">Fee</th>
                             <th scope="col" class="px-6 py-3 font-medium">Actions</th>
@@ -50,6 +51,7 @@ function destroy(id: number) {
                         <tr v-for="course in courses" :key="course.id"
                             class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
                             <td class="px-6 py-4">{{ course.name }}</td>
+                            <td class="px-6 py-4">{{ course.short_name }}</td>
                             <td class="px-6 py-4">{{ course.type }}</td>
                             <td class="px-6 py-4">{{ course.fee }}</td>
                             <td class="px-6 py-4">

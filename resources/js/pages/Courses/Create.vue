@@ -17,10 +17,12 @@ const breadcrumbs: BreadcrumbItem[] = [
 const name = ref('')
 const type = ref('')
 const fee = ref('')
+const short_name = ref('')
 
 function saveCourse() {
     router.post('/courses', {
         name: name.value,
+        short_name: short_name.value,
         type: type.value,
         fee: fee.value,
     })
@@ -51,12 +53,24 @@ function saveCourse() {
                                 placeholder="Name" v-model="name" required />
                         </div>
                         <div>
+                            <label for="short_name" class="block mb-2.5 text-sm font-medium text-heading">
+                                Short Name
+                            </label>
+                            <input type="text" id="short_name"
+                                class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-full"
+                                placeholder="Short Name" v-model="short_name" required />
+                        </div>
+                        <div>
                             <label for="type" class="block mb-2.5 text-sm font-medium text-heading">
                                 Type
                             </label>
-                            <input type="text" id="type"
-                                class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-full"
-                                placeholder="Type" v-model="type" required />
+
+                            <select id="type" v-model="type"
+                                class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body rounded-full">
+                                <option value="">Select Type</option>
+                                <option value="online">Online</option>
+                                <option value="offline">Offline</option>
+                            </select>
                         </div>
                         <div>
                             <label for="fee" class="block mb-2.5 text-sm font-medium text-heading">
