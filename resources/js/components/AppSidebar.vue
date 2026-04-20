@@ -17,6 +17,12 @@ const mainNavItems: NavItem[] = [
 
     },
     {
+        title: 'Department',
+        url: '/departments',
+        href: '/departments',
+        icon: BookOpen,
+    },
+    {
         title: 'Courses',
         url: '/courses',
         href: '/courses',

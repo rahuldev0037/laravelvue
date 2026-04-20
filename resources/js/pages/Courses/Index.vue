@@ -2,14 +2,14 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
 import { Head, usePage } from '@inertiajs/vue3';
+import { Link, router } from '@inertiajs/vue3';
+
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Courses',
         href: '/courses',
     },
 ];
-
-import { Link, router } from '@inertiajs/vue3';
 
 defineProps({
     courses: []
