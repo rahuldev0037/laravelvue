@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/layouts/AppLayout.vue';
-import { router, useForm } from '@inertiajs/vue3';
+import { router, useForm, Head } from '@inertiajs/vue3';
 
 const props = defineProps({
     department: Object

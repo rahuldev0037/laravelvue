@@ -47,8 +47,8 @@ class HandleInertiaRequests extends Middleware
             ],
             'flash' => [
                 // ✅ MUST use fn() (lazy loading)
-                // 'success' => fn() => $request->session()->get('success'),
-                'success' => fn() => session('success'),
+                'success' => fn() => $request->session()->get('success'),
+                // 'success' => fn() => session('success'),
                 'error' => fn() => $request->session()->get('error'),
             ],
 
