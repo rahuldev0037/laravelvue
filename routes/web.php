@@ -10,7 +10,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard', [
+        'courses' => \App\Models\Course::count(),
+        'departments' => \App\Models\Department::count(),
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('courses', CourseController::class);

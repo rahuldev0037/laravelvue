@@ -2,6 +2,7 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link, router } from '@inertiajs/vue3';
+import { ref } from 'vue';
 const breadcrumbs: BreadcrumbItem[] = [
   {
     title: 'Department',
@@ -18,6 +19,15 @@ function destroy(id: number) {
     router.delete(`/departments/${id}`)
   }
 }
+const showModal = ref(false)
+
+const openModal = () => {
+  showModal.value = true
+}
+
+const closeModal = () => {
+  showModal.value = false
+}
 </script>
 
 <template>
@@ -25,7 +35,9 @@ function destroy(id: number) {
   <Head title="Departments List" />
 
   <AppLayout :breadcrumbs="breadcrumbs">
+
     <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
+
       <div class="w-full justify-end flex my-4">
 
         <Link href="/departments/create" class="px-4 py-2 bg-blue-500 text-white rounded">Create Department</Link>
@@ -56,7 +68,51 @@ function destroy(id: number) {
             </tr>
           </tbody>
         </table>
+
+
       </div>
     </div>
   </AppLayout>
 </template>
+
+<style>
+/* BACKDROP */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* SLIDE FROM TOP */
+.slide-down-enter-active {
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-down-leave-active {
+  transition: all 0.25s ease;
+}
+
+.slide-down-enter-from {
+  opacity: 0;
+  transform: translateY(-80px);
+}
+
+.slide-down-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-down-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+</style>
