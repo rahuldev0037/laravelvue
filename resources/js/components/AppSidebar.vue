@@ -5,7 +5,7 @@ import NavUser from '@/components/NavUser.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link, router } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { user, BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
@@ -26,6 +26,12 @@ const mainNavItems: NavItem[] = [
         title: 'Courses',
         url: '/courses',
         href: '/courses',
+        icon: BookOpen,
+    },
+    {
+        title: 'Students',
+        url: '/students',
+        href: '/students',
         icon: BookOpen,
     },
 
