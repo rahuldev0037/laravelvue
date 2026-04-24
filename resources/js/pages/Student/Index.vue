@@ -2,6 +2,7 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
 import { router, useForm, Link, Head } from '@inertiajs/vue3';
+import { Button } from '@/components/ui/button';
 import { reactive } from 'vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -62,6 +63,7 @@ function destroy(id: number) {
                                     class="bg-blue-500 py-1 px-3 rounded text-white hover:bg-blue-600">Edit</Link>
                                 <button @click="destroy(student.id)"
                                     class="pl-4 bg-red-500 text-white py-1 px-3 rounded ml-1 hover:bg-red-600">Delete</button>
+                                <!-- <Button color="danger" class="ml-2" variant="outline" size="sm">Delete</Button> -->
                             </td>
                         </tr>
                     </tbody>
