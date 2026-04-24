@@ -65,6 +65,7 @@ function destroy(id: number) {
                                     class="pl-4 bg-red-500 text-white py-1 px-3 rounded ml-1 hover:bg-red-600">Delete</button>
                                 <!-- <Button color="danger" class="ml-2" variant="outline" size="sm">Delete</Button> -->
                             </td>
+                            <!-- Some comment -->
                         </tr>
                     </tbody>
                 </table>
