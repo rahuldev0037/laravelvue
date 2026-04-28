@@ -11,27 +11,27 @@ import AppLogo from './AppLogo.vue';
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
-        url: '/dashboard',
-        href: '/dashboard',
+        url: '/admin/dashboard',
+        href: '/admin/dashboard',
         icon: LayoutGrid,
 
     },
     {
         title: 'Department',
-        url: '/departments',
-        href: '/departments',
+        url: '/admin/departments',
+        href: '/admin/departments',
         icon: BookOpen,
     },
     {
         title: 'Courses',
-        url: '/courses',
-        href: '/courses',
+        url: '/admin/courses',
+        href: '/admin/courses',
         icon: BookOpen,
     },
     {
         title: 'Students',
-        url: '/students',
-        href: '/students',
+        url: '/admin/students',
+        href: '/admin/students',
         icon: BookOpen,
     },
 
