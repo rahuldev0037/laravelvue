@@ -4,6 +4,8 @@ import { type BreadcrumbItem } from '@/types';
 import { router, useForm, Link, Head } from '@inertiajs/vue3';
 import { Button } from '@/components/ui/button';
 import { reactive } from 'vue';
+import { CButton } from '@coreui/vue'
+// import '@coreui/coreui/dist/css/coreui.min.css'
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -33,6 +35,11 @@ function destroy(id: number) {
 
                 <Link href="/students/create" class="px-4 py-2 bg-blue-500 text-white rounded">Create Student</Link>
             </div>
+            <!-- <div class="w-full justify-end flex my-4">
+                <CButton color="success" variant="outline">Success</CButton>
+                <CButton>Warning</CButton>
+                <Button color="danger">Danger</Button>
+            </div> -->
 
             <div
                 class="relative min-h-[100vh] flex-1 rounded-xl border border-sidebar-border/70 dark:border-sidebar-border md:min-h-min">
