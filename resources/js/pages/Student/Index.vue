@@ -66,7 +66,7 @@ function destroy(id: number) {
                             <td class="px-6 py-4">{{ student.email }}</td>
                             <td class="px-6 py-4">{{ student.phone }}</td>
                             <td class="px-6 py-4">
-                                <Link :href="`/students/${student.id}/edit`"
+                                <Link :href="`/admin/students/${student.id}/edit`"
                                     class="bg-blue-500 py-1 px-3 rounded text-white hover:bg-blue-600">Edit</Link>
                                 <button @click="destroy(student.id)"
                                     class="pl-4 bg-red-500 text-white py-1 px-3 rounded ml-1 hover:bg-red-600">Delete</button>

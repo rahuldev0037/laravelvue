@@ -3,9 +3,11 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DepartmentController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    // return redirect()->route('login');
+    return Inertia::render('Welcome');
 })->name('home');
 Route::prefix('admin')->group(function () {
 

@@ -17,7 +17,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.put(`/students/${props.student.id}`)
+    form.put(`/admin/students/${props.student.id}`)
 }
 </script>
 
