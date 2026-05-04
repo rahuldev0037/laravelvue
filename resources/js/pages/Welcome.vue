@@ -1,17 +1,34 @@
-<script setup lang="ts">
+<script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { ref, onMounted, onUnmounted } from 'vue'
+const videoId = "jt6NMDM_nP4";
 
-const services = [
-    'General Checkup',
-    'Cardiology',
-    'Dental Care',
-    'Pediatrics'
-]
+const slides = [
+    '/images/banner1.jpg',
+    '/images/banner2.jpg',
+    '/images/banner3.jpg'
+];
 
-const doctors = [
-    { name: 'Dr. Sharma', specialization: 'Cardiologist' },
-    { name: 'Dr. Verma', specialization: 'Dentist' }
-]
+const current = ref(0)
+let interval = null
+
+const next = () => {
+    current.value = (current.value + 1) % slides.length
+}
+
+const prev = () => {
+    current.value =
+        (current.value - 1 + slides.length) % slides.length
+}
+
+onMounted(() => {
+    interval = setInterval(next, 3000)
+})
+
+onUnmounted(() => {
+    clearInterval(interval)
+})
+
 </script>
 
 <template>
@@ -41,58 +58,30 @@ const doctors = [
             </nav>
         </header>
 
-        <section class="banner">
-            <div class="content">
-                <h1>Your Health, Our Priority</h1>
-                <p>Trusted medical care with experienced doctors and modern facilities.</p>
+        <div class="relative w-full h-[400px] overflow-hidden">
 
-                <div class="buttons">
-                    <button class="primary">Book Appointment</button>
-                    <button class="secondary">Learn More</button>
-                </div>
+            <!-- Slides -->
+            <div class="flex transition-transform duration-700" :style="`transform: translateX(-${current * 100}%)`">
+                <div v-for="(slide, index) in slides" :key="index"
+                    class="w-full flex-shrink-0 h-[400px] bg-cover bg-center"
+                    :style="`background-image: url(${slide})`"></div>
             </div>
 
-            <div class="image">
-                <img src="/images/doctor1.jpg" alt="Doctor" class="w-full">
-            </div>
-        </section>
+            <!-- Controls -->
+            <button @click="prev" class="absolute left-4 top-1/2 text-white">‹</button>
+            <button @click="next" class="absolute right-4 top-1/2 text-white">›</button>
+        </div>
 
-        <section class="hero">
-            <h1>Welcome to CarePlus Clinic</h1>
-            <p>Your health is our priority</p>
-            <button>Book Appointment</button>
-        </section>
 
-        <!-- SERVICES -->
-        <section class="services">
-            <h2>Our Services</h2>
-            <div class="grid">
-                <div v-for="service in services" :key="service">
-                    <h3>{{ service }}</h3>
-                </div>
-            </div>
-        </section>
+        <div class="video-container">
+            <iframe width="100%" height="600" :src="`https://www.youtube.com/embed/${videoId}`"
+                title="YouTube video player" frameborder="10"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
 
-        <!-- DOCTORS -->
-        <section class="doctors">
-            <h2>Our Doctors</h2>
-            <div v-for="doc in doctors" :key="doc.name">
-                <h3>{{ doc.name }}</h3>
-                <p>{{ doc.specialization }}</p>
-            </div>
-        </section>
 
-        <!-- ABOUT -->
-        <section class="about">
-            <h2>About Us</h2>
-            <p>We provide high-quality healthcare with modern facilities.</p>
-        </section>
-
-        <!-- CONTACT -->
-        <section class="contact">
-            <h2>Contact</h2>
-            <p>📍 Delhi | 📞 +91-XXXXXXXXXX</p>
-        </section>
     </div>
 </template>
 
@@ -101,6 +90,11 @@ const doctors = [
     text-align: center;
     padding: 60px;
     background: #e3f2fd;
+}
+
+.video-container {
+    width: 100%;
+    margin: 40px auto;
 }
 
 .services,
