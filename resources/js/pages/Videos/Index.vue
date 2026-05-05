@@ -19,7 +19,7 @@ const props = defineProps({
 
 function destroy(id: number) {
     if (confirm('Are you sure you want to delete this video?')) {
-        router.delete(`/videos/${id}`)
+        router.delete(`/admin/videos/${id}`)
     }
 }
 
@@ -62,7 +62,8 @@ function destroy(id: number) {
                             <td class="px-6 py-4">{{ video.url }}</td>
 
                             <td class="px-6 py-4">
-                                <iframe width="100%" height="200" :src="`https://www.youtube.com/embed/${video.url}`"
+                                <iframe width="100%" class="rounded-lg"
+                                    :src="`https://www.youtube.com/embed/${video.url.split('watch?v=')[1]}`"
                                     title="YouTube video player" frameborder="10"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen>
