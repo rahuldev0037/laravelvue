@@ -5,7 +5,7 @@ import NavUser from '@/components/NavUser.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link, router } from '@inertiajs/vue3';
-import { user, BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { VideoIcon, UserIcon, BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
@@ -32,7 +32,13 @@ const mainNavItems: NavItem[] = [
         title: 'Students',
         url: '/admin/students',
         href: '/admin/students',
-        icon: BookOpen,
+        icon: UserIcon,
+    },
+    {
+        title: 'Videos',
+        url: '/admin/videos',
+        href: '/admin/videos',
+        icon: VideoIcon,
     },
 
 ];

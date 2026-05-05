@@ -21,6 +21,10 @@ const prev = () => {
         (current.value - 1 + slides.length) % slides.length
 }
 
+const props = defineProps({
+    videos: Object
+});
+
 onMounted(() => {
     interval = setInterval(next, 3000)
 })
@@ -58,12 +62,12 @@ onUnmounted(() => {
             </nav>
         </header>
 
-        <div class="relative w-full h-[400px] overflow-hidden">
+        <div class="relative w-full h-[500px] overflow-hidden">
 
             <!-- Slides -->
             <div class="flex transition-transform duration-700" :style="`transform: translateX(-${current * 100}%)`">
                 <div v-for="(slide, index) in slides" :key="index"
-                    class="w-full flex-shrink-0 h-[400px] bg-cover bg-center"
+                    class="w-full flex-shrink-0 h-[500px] bg-cover bg-center"
                     :style="`background-image: url(${slide})`"></div>
             </div>
 
@@ -72,14 +76,27 @@ onUnmounted(() => {
             <button @click="next" class="absolute right-4 top-1/2 text-white">›</button>
         </div>
 
+        <div class="grid grid-rows-4 gap-4">
 
-        <div class="video-container">
-            <iframe width="100%" height="600" :src="`https://www.youtube.com/embed/${videoId}`"
-                title="YouTube video player" frameborder="10"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+            <div v-for="video in videos" :key="video.id" class="w-full max-w-4xl mt-10">
+
+                <div class="border rounded-lg overflow-hidden shadow-md">
+                    <iframe width="100%" height="250"
+                        :src="`https://www.youtube.com/embed/${video.url.split('watch?v=')[1]}`"
+                        title="YouTube video player" frameborder="10"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- <iframe width="100%" height="200" :src="`https://www.youtube.com/embed/${video.url}`"
+                    title="YouTube video player" frameborder="10"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe> -->
         </div>
+
 
 
     </div>
