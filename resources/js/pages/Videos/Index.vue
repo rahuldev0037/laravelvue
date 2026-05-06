@@ -62,7 +62,7 @@ function destroy(id: number) {
                             <td class="px-6 py-4">{{ video.url }}</td>
 
                             <td class="px-6 py-4">
-                                <iframe width="100%" class="rounded-lg"
+                                <iframe width="100%" class="rounded-lg shadow-2xl"
                                     :src="`https://www.youtube.com/embed/${video.url.split('watch?v=')[1]}`"
                                     title="YouTube video player" frameborder="10"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
