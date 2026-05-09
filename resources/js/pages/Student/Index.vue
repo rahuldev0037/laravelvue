@@ -33,7 +33,8 @@ function destroy(id: number) {
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <div class="w-full justify-end flex my-4">
 
-                <Link href="/students/create" class="px-4 py-2 bg-blue-500 text-white rounded">Create Student</Link>
+                <Link href="/admin/students/create" class="px-4 py-2 bg-blue-500 text-white rounded">Create Student
+                </Link>
             </div>
             <!-- <div class="w-full justify-end flex my-4">
                 <CButton color="success" variant="outline">Success</CButton>

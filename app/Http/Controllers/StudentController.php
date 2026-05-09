@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentRequest;
 use App\Models\Course;
 use App\Models\Department;
 use App\Models\Student;
@@ -27,15 +28,9 @@ class StudentController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StudentRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:students,email',
-            'phone' => 'required|string|max:20',
-            'department_id' => 'required|exists:departments,id',
-            'course_id' => 'required|exists:courses,id',
-        ]);
+        $validated = $request->validated();
 
         $student = Student::create($validated);
 
@@ -60,15 +55,9 @@ class StudentController extends Controller
         ]);
     }
 
-    public function update(Request $request, Student $student)
+    public function update(StudentRequest $request, Student $student)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:students,email,' . $student->id,
-            'phone' => 'required|string|max:20',
-            'department_id' => 'required|exists:departments,id',
-            'course_id' => 'required|exists:courses,id',
-        ]);
+        $validated = $request->validated();
 
         $student->update($validated);
 
