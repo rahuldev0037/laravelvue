@@ -22,14 +22,20 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'url' => 'required|url',
-        ]);
+        try {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'url' => 'required|url',
+            ]);
 
-        Video::create($request->only('title', 'url'));
+            Video::create($request->only('title', 'url'));
 
-        return redirect()->route('videos.index')->with('success', 'Video created successfully.');
+            return redirect()->route('videos.index')->with('success', 'Video created successfully.');
+
+        } catch (\Exception $e) {
+            return redirect()->route('videos.index')->with('error', 'An error occurred while creating the video: ' . $e->getMessage());
+        }
+
     }
 
     public function show(Video $video)
