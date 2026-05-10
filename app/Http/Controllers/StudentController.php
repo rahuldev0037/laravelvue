@@ -6,7 +6,6 @@ use App\Http\Requests\StudentRequest;
 use App\Models\Course;
 use App\Models\Department;
 use App\Models\Student;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class StudentController extends Controller
