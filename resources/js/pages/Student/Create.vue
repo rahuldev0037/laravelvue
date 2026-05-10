@@ -7,7 +7,7 @@ import { ref } from 'vue';
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Students',
-        href: '/students',
+        href: '/admin/students',
     },
 ];
 
@@ -23,7 +23,7 @@ const department_id = ref('');
 const course_id = ref('');
 
 function saveStudent() {
-    router.post('/students', {
+    router.post('/admin/students', {
         name: name.value,
         email: email.value,
         phone: phone.value,

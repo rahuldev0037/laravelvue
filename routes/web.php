@@ -13,7 +13,7 @@ Route::get('/', function () {
 })->name('home');
 Route::prefix('admin')->group(function () {
 
-    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware(['auth', 'verified', 'role:admin,student'])->name('dashboard');
 
     Route::resource('departments', DepartmentController::class);
 

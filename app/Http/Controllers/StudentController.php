@@ -6,6 +6,8 @@ use App\Http\Requests\StudentRequest;
 use App\Models\Course;
 use App\Models\Department;
 use App\Models\Student;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 
 class StudentController extends Controller
@@ -31,6 +33,12 @@ class StudentController extends Controller
     {
         $validated = $request->validated();
 
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['name']),
+        ]);
+
         $student = Student::create($validated);
 
         return redirect()
@@ -40,7 +48,7 @@ class StudentController extends Controller
 
     public function show(Student $student)
     {
-        //
+        // 
     }
 
     public function edit(Student $student)
