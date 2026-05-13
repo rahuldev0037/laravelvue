@@ -20,6 +20,7 @@ class DashboardController extends Controller
 
         // Admin dashboard - see all resources
         if ($user->hasRole('admin')) {
+
             $data = [
                 'courses' => Course::count(),
                 'departments' => Department::count(),
